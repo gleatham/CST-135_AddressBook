@@ -4,6 +4,13 @@ public class Photo {
     private String dateOfPhoto;
     private String description;
 
+    /**
+     * Main constructor for Photo
+     * @param photoIdNum
+     * @param fileName
+     * @param dateOfPhoto
+     * @param description
+     */
     Photo(int photoIdNum, String fileName, String dateOfPhoto, String description){
         this.photoIdNum = photoIdNum;
         this.fileName = fileName;

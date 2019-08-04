@@ -1,4 +1,4 @@
-public class PersonContact {
+public class PersonContact extends BaseContact {
     private String dob;
     private String description;
     //BaseContact[];
@@ -8,6 +8,14 @@ public class PersonContact {
         this.dob = dob;
         this.description = description;
     }
+
+    PersonContact(String dob, String description, int number, String name, String phone, Photo[] photos, Location location){
+        super(number, name, phone, location);
+        this.dob = dob;
+        this.description = description;
+    }
+
+    //, int number, String name, int phone, Photo[] photos, Location location
 
     public String getDob() {
         return dob;

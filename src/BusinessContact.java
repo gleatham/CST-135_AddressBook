@@ -1,8 +1,14 @@
-public class BusinessContact {
+public class BusinessContact extends BaseContact {
     private String businessHours;
     private String url;
 
     BusinessContact(String businessHours, String url){
+        this.businessHours = businessHours;
+        this.url = url;
+    }
+
+    BusinessContact(String businessHours, String url, int number, String name, String phone, Photo[] photos, Location location){
+        super(number, name, phone, location);
         this.businessHours = businessHours;
         this.url = url;
     }
