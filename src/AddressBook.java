@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.*;
 
 public class AddressBook {
     PersonContact[] personContact = new PersonContact[200];
@@ -40,7 +41,7 @@ public class AddressBook {
         input.nextLine();//clear machine garbage
 
 
-        //Base contact
+        //BaseContact info; this is used in personal and business contacts
         System.out.println("Please enter the following");
         System.out.print("Name: ");
         name = input.nextLine();
@@ -142,9 +143,20 @@ public class AddressBook {
 
     public void displayAll(){
         //Print every contact
-        //BaseContact first
-        //Person 2nd
-        //business 3rd
+        for(int i = 0; i < personContact.length; i++){
+            if(personContact[i] == null){
+                break;
+            }
+            else {
+                System.out.println("Name: " + personContact[i].getName());
+                System.out.println("Contact Number: " + personContact[i].getNumber());
+                System.out.println("Phone number: " + personContact[i].getPhone());
+                System.out.println("Address: " + personContact[i].getLocation().getStreet() +
+                                    personContact[i].getLocation().getCity() + personContact[i].getLocation().getState()
+                                    + "\nLocation ID: " + personContact[i].getLocation().getLocationId());
+                System.out.println("***Photo Info***"); //Write a seperate method as it will be used for both types
+            }
+        }
     }
 
     public void sort(){
@@ -152,6 +164,13 @@ public class AddressBook {
     }
 
     public void search(){
-        //Look for built in search
+        //java.util.regex.*; use regular expression to search
+
+        //search business contact array for a match
+        int i = 0;
+        while(this.businessContact[i] != null && i < 200){
+            //if
+            i++;
+        }
     }
 }
