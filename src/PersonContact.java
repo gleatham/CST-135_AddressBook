@@ -9,7 +9,7 @@ public class PersonContact extends BaseContact {
         this.description = description;
     }
 
-    PersonContact(String dob, String description, int number, String name, String phone, Photo[] photos, Location location){
+    PersonContact(String dob, String description, int number, String name, String phone, Location location){
         super(number, name, phone, location);
         this.dob = dob;
         this.description = description;
