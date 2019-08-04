@@ -3,6 +3,7 @@ public class BaseContact {
     private String name;
     private String phone;
     private Photo[] photos = new Photo[10];
+    int photoIndex = 0;
     private Location location;
     private PersonContact personContact;
     private BusinessContact businessContact;
@@ -27,5 +28,10 @@ public class BaseContact {
     }
 
     public BaseContact() {
+    }
+
+    public void addPhoto(Photo photo){
+        photos[photoIndex] = photo;
+        photoIndex++;
     }
 }

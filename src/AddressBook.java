@@ -33,6 +33,7 @@ public class AddressBook {
         String businessHours;
         String url;
 
+
         int option;
         System.out.println("What kind of contact do you want to add?\n1. Personal Contact\n2. Business Contact");
         option = input.nextInt();
@@ -69,6 +70,14 @@ public class AddressBook {
 
             PersonContact personContactNew = new PersonContact(dob, description, number, name, phone, location);
 
+            System.out.print("Would you like to add a photo?\n1. Yes\n2.No");
+            int temp;
+            temp = input.nextInt();
+            if(temp == 1){
+                Photo newPhoto = addPhoto();
+                personContactNew.addPhoto(newPhoto);
+            }
+
             personContact[personContactIndex] = personContactNew;
             personContactIndex++;
         }
@@ -80,6 +89,15 @@ public class AddressBook {
             url = input.nextLine();
 
             BusinessContact businessContactNew = new BusinessContact(businessHours, url, number, name, phone, location);
+
+            System.out.print("Would you like to add a photo?\n1. Yes\n2.No");
+            int temp;
+            temp = input.nextInt();
+            if(temp == 1){
+                Photo newPhoto = addPhoto();
+                businessContactNew.addPhoto(newPhoto);
+            }
+
             businessContact[businessContactIndex] = businessContactNew;
             businessContactIndex++;
         }
@@ -88,10 +106,33 @@ public class AddressBook {
         }
     }
 
+    public Photo addPhoto(){
+        //Photo variables
+        int photoIdNum;
+        String fileName;
+        String dateOfPhoto;
+        String photoDescription;
+
+        System.out.println("Please enter the following");
+        System.out.print("Photo ID number: ");
+        photoIdNum = input.nextInt();
+        input.nextLine(); //clear \n and other garbage from nextInt()
+        System.out.println("File name: ");
+        fileName = input.nextLine();
+        System.out.print("Date the photo was taken: ");
+        dateOfPhoto = input.nextLine();
+        System.out.print("Description: ");
+        photoDescription = input.nextLine();
+
+        Photo photo = new Photo(photoIdNum, fileName, dateOfPhoto, photoDescription);
+        return photo;
+    }
+
     public void remove(){
         //Change contact to null
         //Move all contacts one space in the array
         //decrement index
+        System.out.println("Press 1 to remove a Personal Contact.\nPress 2 to remove a Business Contact");
     }
 
     public void displayOne(){
