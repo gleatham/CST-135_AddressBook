@@ -1,28 +1,20 @@
-import java.util.Scanner;
-import java.util.regex.*;
+import java.util.*;
 
-public class AddressBook {
-    PersonContact[] personContact = new PersonContact[200];
-    BusinessContact[] businessContact = new BusinessContact[200];
-    //This needs to be an arrayList
-
-    private int totalContacts; //Keeps track of total contacts
-    private int personContactIndex = 0; //Where are we in the array?
-    private int businessContactIndex = 0; //Where are we in the array?
+public class AddressBookTwo {
+    ArrayList<BaseContact> addressBook = new ArrayList<BaseContact>();
 
     //Scanner for the entire class
     Scanner input = new Scanner(System.in);
 
     public void add(){
-        /*
-        //BaseCcontact variables
-        int number = 0; //contact number will be it's index in the array...maybe
+        //BaseContact variables
+        int number = 0; //Contacts index in the array. ID Number
         String name;
         String phone;
 
         //Location and needed variables for location
         Location location;
-        int locationId; //might change to string
+        String locationId;
         String street;
         String city;
         String state;
@@ -30,12 +22,11 @@ public class AddressBook {
         //Person Contact
         String dob;
         String description;
-        //Relatives: It will need to be an array. I need to figure out a good way to implement it
+        ArrayList<BaseContact> relatives = new ArrayList<BaseContact>();
 
         //Business contact variables
         String businessHours;
         String url;
-
 
         int option;
         System.out.println("What kind of contact do you want to add?\n1. Personal Contact\n2. Business Contact");
@@ -52,8 +43,7 @@ public class AddressBook {
         phone = input.nextLine();
 
         System.out.print("Location ID: ");
-        locationId = input.nextInt();
-        input.nextLine(); //clear machine BS
+        locationId = input.nextLine();
 
         System.out.print("Street: ");
         street = input.nextLine();
@@ -81,8 +71,7 @@ public class AddressBook {
                 personContactNew.addPhoto(newPhoto);
             }
 
-            personContact[personContactIndex] = personContactNew;
-            personContactIndex++;
+            addressBook.add(personContactNew);
         }
         else if(option == 2){
             //Add a business contact
@@ -101,24 +90,23 @@ public class AddressBook {
                 businessContactNew.addPhoto(newPhoto);
             }
 
-            businessContact[businessContactIndex] = businessContactNew;
-            businessContactIndex++;
+            addressBook.add(businessContactNew);
         }
         else{
             System.out.println("Invalid input!");
-        } */
+        }
     }
-/*
+
     public Photo addPhoto(){
         //Photo variables
-        int photoIdNum;
+        String photoIdNum;
         String fileName;
         String dateOfPhoto;
         String photoDescription;
 
         System.out.println("Please enter the following");
         System.out.print("Photo ID number: ");
-        photoIdNum = input.nextInt();
+        photoIdNum = input.nextLine();
         input.nextLine(); //clear \n and other garbage from nextInt()
         System.out.println("File name: ");
         fileName = input.nextLine();
@@ -126,53 +114,19 @@ public class AddressBook {
         dateOfPhoto = input.nextLine();
         System.out.print("Description: ");
         photoDescription = input.nextLine();
-
         Photo photo = new Photo(photoIdNum, fileName, dateOfPhoto, photoDescription);
+
         return photo;
     }
-*/
-    public void remove(){
-        //Change contact to null
-        //Move all contacts one space in the array
-        //decrement index
-        System.out.println("Press 1 to remove a Personal Contact.\nPress 2 to remove a Business Contact");
-    }
 
-    public void displayOne(){
-        //display selected contact
-        //required array index
-    }
-
-    public void displayAll(){
-        //Print every contact
-        for(int i = 0; i < personContact.length; i++){
-            if(personContact[i] == null){
-                break;
-            }
-            else {
-                System.out.println("Name: " + personContact[i].getName());
-                System.out.println("Contact Number: " + personContact[i].getNumber());
-                System.out.println("Phone number: " + personContact[i].getPhone());
-                System.out.println("Address: " + personContact[i].getLocation().getStreet() +
-                                    personContact[i].getLocation().getCity() + personContact[i].getLocation().getState()
-                                    + "\nLocation ID: " + personContact[i].getLocation().getLocationId());
-                System.out.println("***Photo Info***"); //Write a seperate method as it will be used for both types
-            }
-        }
-    }
-
-    public void sort(){
-        //use built in String sort?
-    }
-
-    public void search(){
-        //java.util.regex.*; use regular expression to search
-
-        //search business contact array for a match
-        int i = 0;
-        while(this.businessContact[i] != null && i < 200){
-            //if
-            i++;
-        }
+    public void displayOne(int number){
+        System.out.println(addressBook.get(number).getName());
+        System.out.println(addressBook.get(number).getPhone());
+        System.out.println(addressBook.get(number).getLocation().getStreet());
+        System.out.println(addressBook.get(number).getLocation().getCity());
+        System.out.println(addressBook.get(number).getLocation().getState());
+        System.out.println(addressBook.get(number).getLocation().getLocationId());
+        //System.out.println(addressBook.get(number).getDob());
+        System.out.println(addressBook.get(number).getPersonContact().getDescription());
     }
 }

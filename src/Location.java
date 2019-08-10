@@ -1,10 +1,10 @@
 public class Location {
-    private int locationId;
+    private String locationId;
     private String street;
     private String city;
     private String state;
 
-    Location(int locationId, String street, String city, String state){
+    Location(String locationId, String street, String city, String state){
         this.locationId = locationId;
         this.street = street;
         this.city = city;
@@ -18,11 +18,11 @@ public class Location {
         System.out.println(this.state);
     }
 
-    public int getLocationId() {
+    public String getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(int locationId) {
+    public void setLocationId(String locationId) {
         this.locationId = locationId;
     }
 

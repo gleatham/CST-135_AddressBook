@@ -1,5 +1,5 @@
 public class Photo {
-    private int photoIdNum;
+    private String photoIdNum;
     private String fileName;
     private String dateOfPhoto;
     private String description;
@@ -11,18 +11,18 @@ public class Photo {
      * @param dateOfPhoto
      * @param description
      */
-    Photo(int photoIdNum, String fileName, String dateOfPhoto, String description){
+    Photo(String photoIdNum, String fileName, String dateOfPhoto, String description){
         this.photoIdNum = photoIdNum;
         this.fileName = fileName;
         this.dateOfPhoto = dateOfPhoto;
         this.description = description;
     }
 
-    public int getPhotoIdNum() {
+    public String getPhotoIdNum() {
         return photoIdNum;
     }
 
-    public void setPhotoIdNum(int photoIdNum) {
+    public void setPhotoIdNum(String photoIdNum) {
         this.photoIdNum = photoIdNum;
     }
 

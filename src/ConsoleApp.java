@@ -4,8 +4,9 @@ public class ConsoleApp {
         System.out.println("Pick an option");
         System.out.println("1. Add a contact");
         System.out.println("2. Display a contact");
-        AddressBook addressBook = new AddressBook();
+        AddressBookTwo addressBook = new AddressBookTwo();
         addressBook.add();
+        addressBook.displayOne(0);
 
     }
 }
