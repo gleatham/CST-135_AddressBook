@@ -5,8 +5,6 @@ public class BaseContact {
     private Photo[] photos = new Photo[10];
     int photoIndex = 0;
     private Location location;
-    private PersonContact personContact;
-    private BusinessContact businessContact;
 
     public BaseContact(int number, String name, String phone, Location location){
         this.number = number;
@@ -16,15 +14,12 @@ public class BaseContact {
         this.location = location;
     }
 
-    public BaseContact(int number, String name, String phone, Photo[] photos, Location location, PersonContact personContact,
-                BusinessContact businessContact){
+    public BaseContact(int number, String name, String phone, Photo[] photos, Location location){
         this.number = number;
         this.name = name;
         this.phone = phone;
         this.photos = photos;
         this.location = location;
-        this.personContact = personContact;
-        this.businessContact = businessContact;
     }
 
     public BaseContact() {
@@ -83,19 +78,4 @@ public class BaseContact {
         this.location = location;
     }
 
-    public PersonContact getPersonContact() {
-        return personContact;
-    }
-
-    public void setPersonContact(PersonContact personContact) {
-        this.personContact = personContact;
-    }
-
-    public BusinessContact getBusinessContact() {
-        return businessContact;
-    }
-
-    public void setBusinessContact(BusinessContact businessContact) {
-        this.businessContact = businessContact;
-    }
 }
