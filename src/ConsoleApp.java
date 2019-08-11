@@ -23,6 +23,7 @@ public class ConsoleApp {
             System.out.println("3. Display all contacts");
             System.out.println("4. Delete contact");
             System.out.println("5. Search");
+            System.out.println("6. Edit Contact");
 
             a = input.nextLine();
 
@@ -58,6 +59,12 @@ public class ConsoleApp {
                 System.out.print("Search: ");
                 search = input.nextLine();
                 addressBook.search(search);
+            }
+            if(a.equals("6")){
+                System.out.println("What contact number do you want to edit?");
+                int index = input.nextInt();
+                input.nextLine();
+                addressBook.editContact(index);
             }
         }
 

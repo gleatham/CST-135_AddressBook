@@ -198,6 +198,17 @@ public class AddressBook {
         addressBook.remove(index);
     }
 
+    public void editContact(int index){
+        System.out.println("Select an option");
+        System.out.println("1. Edit Name\nEdit Phone\nEdit Location\nEdit Description");
+        String a = input.nextLine();
+        if(a.equals("1")){
+            System.out.print("Name: ");
+            String b = input.nextLine();
+            addressBook.get(index).setName(b);
+        }
+    }
+
     public ArrayList getAddressBook(){
         return addressBook;
     }
