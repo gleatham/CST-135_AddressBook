@@ -8,6 +8,7 @@ public class AddressBook {
     //Scanner for the entire class
     Scanner input = new Scanner(System.in);
 
+
     public void add(){
         //BaseContact variables
         int number = 0; //Contacts index in the array. ID Number
@@ -63,7 +64,9 @@ public class AddressBook {
             System.out.print("Description: ");
             description = input.nextLine();
 
-            PersonContact personContactNew = new PersonContact(dob, description, number, name, phone, location);
+            //PersonContact personContactNew = new PersonContact(dob, description, number, name, phone, location);
+
+            //Actually a person contact
             BusinessContact businessContactNew = new BusinessContact(dob, description, number, name, phone, location);
 
             System.out.print("Would you like to add a photo?\n1. Yes\n2.No");
@@ -71,7 +74,7 @@ public class AddressBook {
             temp = input.nextInt();
             if(temp == 1){
                 Photo newPhoto = addPhoto();
-                personContactNew.addPhoto(newPhoto);
+                businessContactNew.addPhoto(newPhoto);
             }
 
             addressBook.add(businessContactNew);
@@ -100,6 +103,113 @@ public class AddressBook {
         else{
             System.out.println("Invalid input!");
         }
+    }
+
+    public void add(String dob, String description, int number, String name, String phone, Location location){
+        BusinessContact businessContactNew = new BusinessContact(dob, description, number, name, phone, location);
+        addressBook.add(businessContactNew);
+    }
+/*
+    public void add(){
+        //BaseContact variables
+        int number = 0; //Contacts index in the array. ID Number
+        String name;
+        String phone;
+
+        //Location and needed variables for location
+        Location location;
+        String locationId;
+        String street;
+        String city;
+        String state;
+
+        //Person Contact
+        String dob;
+        String description;
+        ArrayList<BaseContact> relatives = new ArrayList<BaseContact>();
+
+        //Business contact variables
+        String businessHours;
+        String url;
+
+        int option;
+        System.out.println("What kind of contact do you want to add?\n1. Personal Contact\n2. Business Contact");
+        option = input.nextInt();
+        input.nextLine();//clear machine garbage
+
+
+        //BaseContact info; this is used in personal and business contacts
+        System.out.println("Please enter the following");
+        System.out.print("Name: ");
+        name = input.nextLine();
+
+        System.out.print("Phone Number: ");
+        phone = input.nextLine();
+
+        System.out.print("Location ID: ");
+        locationId = input.nextLine();
+
+        System.out.print("Street: ");
+        street = input.nextLine();
+
+        System.out.print("City: ");
+        city = input.nextLine();
+
+        System.out.print("State: ");
+        state = input.nextLine();
+        location = new Location(locationId, street, city, state);
+
+        if(option == 1) {
+            System.out.print("Date of birth: ");
+            dob = input.nextLine();
+            System.out.print("Description: ");
+            description = input.nextLine();
+
+            //PersonContact personContactNew = new PersonContact(dob, description, number, name, phone, location);
+
+            //Actually a person contact
+            BusinessContact businessContactNew = new BusinessContact(dob, description, number, name, phone, location);
+
+            System.out.print("Would you like to add a photo?\n1. Yes\n2.No");
+            int temp;
+            temp = input.nextInt();
+            if(temp == 1){
+                Photo newPhoto = addPhoto();
+                businessContactNew.addPhoto(newPhoto);
+            }
+
+            addressBook.add(businessContactNew);
+        }
+        else if(option == 2){
+            //Add a business contact
+            System.out.print("Business Hours: ");
+            businessHours = input.nextLine();
+            System.out.print("Website: ");
+            url = input.nextLine();
+            Boolean isBusiness = true;
+
+            BusinessContact businessContactNew = new BusinessContact(businessHours, url, number, name, phone, location,
+                    isBusiness);
+
+            System.out.print("Would you like to add a photo?\n1. Yes\n2.No");
+            int temp;
+            temp = input.nextInt();
+            if(temp == 1){
+                Photo newPhoto = addPhoto();
+                businessContactNew.addPhoto(newPhoto);
+            }
+
+            addressBook.add(businessContactNew);
+        }
+        else{
+            System.out.println("Invalid input!");
+        }
+    }
+*/
+    public void add(String dob, String description, int number, String name, String phone, Location location,
+                    Boolean isBusiness){
+        BusinessContact businessContactNew = new BusinessContact(dob, description, number, name, phone, location);
+        addressBook.add(businessContactNew);
     }
 
     public Photo addPhoto(){

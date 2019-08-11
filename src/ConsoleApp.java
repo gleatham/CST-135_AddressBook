@@ -5,6 +5,9 @@ public class ConsoleApp {
 
         AddressBook addressBook = new AddressBook();
 
+        FileAccessService readFile = new FileAccessService();
+        readFile.readAllContacts(addressBook);
+
         Scanner input = new Scanner(System.in);
         String a = "i";
         Boolean run = true;
@@ -35,4 +38,5 @@ public class ConsoleApp {
         }
 
     }
+
 }
