@@ -5,7 +5,7 @@ public class AddressBookTwo {
 
     //Scanner for the entire class
     Scanner input = new Scanner(System.in);
-
+/*
     public void add(){
         //BaseContact variables
         int number = 0; //Contacts index in the array. ID Number
@@ -95,8 +95,8 @@ public class AddressBookTwo {
         else{
             System.out.println("Invalid input!");
         }
-    }
-
+    }*/
+/*
     public Photo addPhoto(){
         //Photo variables
         String photoIdNum;
@@ -117,8 +117,8 @@ public class AddressBookTwo {
         Photo photo = new Photo(photoIdNum, fileName, dateOfPhoto, photoDescription);
 
         return photo;
-    }
-
+    }*/
+/*
     public void displayOne(int number){
         System.out.println(addressBook.get(number).getName());
         System.out.println(addressBook.get(number).getPhone());
@@ -127,6 +127,6 @@ public class AddressBookTwo {
         System.out.println(addressBook.get(number).getLocation().getState());
         System.out.println(addressBook.get(number).getLocation().getLocationId());
         //System.out.println(addressBook.get(number).getDob());
-        System.out.println(addressBook.get(number).getPersonContact().getDescription());
-    }
+        //System.out.println(addressBook.get(number).getPersonContact().getDescription());
+    }*/
 }

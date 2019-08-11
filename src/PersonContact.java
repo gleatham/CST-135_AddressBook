@@ -15,6 +15,10 @@ public class PersonContact extends BaseContact {
         this.description = description;
     }
 
+    PersonContact(int number, String name, String phone, Location location){
+        super(number, name, phone, location);
+    }
+
     //, int number, String name, int phone, Photo[] photos, Location location
 
     public String getDob() {
