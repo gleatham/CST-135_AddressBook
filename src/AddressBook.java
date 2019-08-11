@@ -9,6 +9,7 @@ import java.util.regex.*;
 public class AddressBook {
     private ArrayList<BusinessContact> addressBook = new ArrayList<>();
     private int contactNumber = 0; //will be used to assign number, corresponds to index location
+
     //Scanner for the entire class
     Scanner input = new Scanner(System.in);
 
