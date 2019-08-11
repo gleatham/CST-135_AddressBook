@@ -1,16 +1,14 @@
+/**
+ * Child of PersonContact
+ * Used by AddressBook to create both Person and Business contacts
+ * Boolean isBusiness used to add and display the proper info for each contact.
+ */
 public class BusinessContact extends PersonContact {
     private String businessHours;
     private String url;
     Boolean isBusiness = false;
 
 
-    /*
-        BusinessContact(String businessHours, String url){
-            this.businessHours = businessHours;
-            this.url = url;
-        }
-
-         */
     BusinessContact(int number, String name, String phone, Location location){
         super(number, name, phone, location);
     }

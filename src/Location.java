@@ -1,3 +1,7 @@
+/**
+ * Stand along class.
+ * Used by BaseContact to add a location
+ */
 public class Location {
     private String locationId;
     private String street;
@@ -11,12 +15,6 @@ public class Location {
         this.state = state;
     }
 
-    public void printLocationInfo(){
-        System.out.println(this.locationId);
-        System.out.println(this.street);
-        System.out.println(this.city);
-        System.out.println(this.state);
-    }
 
     public String getLocationId() {
         return locationId;

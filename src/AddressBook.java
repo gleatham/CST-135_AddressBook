@@ -2,9 +2,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.*;
 
+/**
+ * AddressBook holds an ArrayList of BusinessContact objects.
+ * BusinessContact is a subclass of PersonContact which is a subclass of BaseContact
+ */
 public class AddressBook {
     private ArrayList<BusinessContact> addressBook = new ArrayList<>();
-    private int contactNumber = 0; //will be used to assign number
+    private int contactNumber = 0; //will be used to assign number, corresponds to index location
     //Scanner for the entire class
     Scanner input = new Scanner(System.in);
 
@@ -121,6 +125,8 @@ public class AddressBook {
         contactNumber++;
     }
 
+    //This method is called if the user chooses to add a photo.
+    //A photo is not needed for the default constructors
     public Photo addPhoto(){
         //Photo variables
         String photoIdNum;
@@ -144,21 +150,25 @@ public class AddressBook {
     }
 
     public void displayOne(int index){
-        System.out.println("Name: " + addressBook.get(index).getName());
-        System.out.println("Contact Number: " + addressBook.get(index).getNumber());
-        System.out.println("Phone: " + addressBook.get(index).getPhone());
-        System.out.println("Street: " + addressBook.get(index).getLocation().getStreet());
-        System.out.println("City: " + addressBook.get(index).getLocation().getCity());
-        System.out.println("State: " + addressBook.get(index).getLocation().getState());
-        System.out.println("Location ID: " + addressBook.get(index).getLocation().getLocationId());
+        try {
+            System.out.println("Name: " + addressBook.get(index).getName());
+            System.out.println("Contact Number: " + addressBook.get(index).getNumber());
+            System.out.println("Phone: " + addressBook.get(index).getPhone());
+            System.out.println("Street: " + addressBook.get(index).getLocation().getStreet());
+            System.out.println("City: " + addressBook.get(index).getLocation().getCity());
+            System.out.println("State: " + addressBook.get(index).getLocation().getState());
+            System.out.println("Location ID: " + addressBook.get(index).getLocation().getLocationId());
 
-        if(addressBook.get(index).getIsBusiness()){
-            System.out.println("Business Hours: " + addressBook.get(index).getBusinessHours());
-            System.out.println("Website: " + addressBook.get(index).getUrl());
+            if (addressBook.get(index).getIsBusiness()) {
+                System.out.println("Business Hours: " + addressBook.get(index).getBusinessHours());
+                System.out.println("Website: " + addressBook.get(index).getUrl());
+            } else {
+                System.out.println("Date of Birth: " + addressBook.get(index).getDob());
+                System.out.println("Description: " + addressBook.get(index).getDescription());
+            }
         }
-        else {
-            System.out.println("Date of Birth: " + addressBook.get(index).getDob());
-            System.out.println("Description: " + addressBook.get(index).getDescription());
+        catch (java.lang.IndexOutOfBoundsException addressBook){
+            System.out.println("Invalid input, returning to main menu.");
         }
 
     }

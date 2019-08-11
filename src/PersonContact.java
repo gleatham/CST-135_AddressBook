@@ -1,9 +1,12 @@
+/**
+ * Child of BaseContact
+ * Parent of BusinessContact
+ */
 public class PersonContact extends BaseContact {
     private String dob;
     private String description;
-    //BaseContact[];
+    //Still need to add relatives array
 
-    //Add relatives. Array of BaseContact
     PersonContact(String dob, String description){
         this.dob = dob;
         this.description = description;
@@ -18,8 +21,6 @@ public class PersonContact extends BaseContact {
     PersonContact(int number, String name, String phone, Location location){
         super(number, name, phone, location);
     }
-
-    //, int number, String name, int phone, Photo[] photos, Location location
 
     public String getDob() {
         return dob;

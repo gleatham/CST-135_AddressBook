@@ -1,3 +1,7 @@
+/**
+ * Parent class of PersonContact
+ * Has all basic oontact information.
+ */
 public class BaseContact {
     private int number;
     private String name;

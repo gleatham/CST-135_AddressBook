@@ -1,3 +1,7 @@
+/**
+ * Stand alone class.
+ * Called if user wants to add a photo to their contact.
+ */
 public class Photo {
     private String photoIdNum;
     private String fileName;

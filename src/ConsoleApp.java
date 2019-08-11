@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/**
+ * Driver for Address book application.
+ * Initializes AddressBook object
+ */
 public class ConsoleApp {
     public static void main(String[] args){
 
@@ -29,10 +33,16 @@ public class ConsoleApp {
                 addressBook.add();
             }
             if(a.equals("2")){
-                System.out.println("Enter contact number between 1 and " + addressBook.getAddressBook().size());
-                int number = input.nextInt();
-                input.nextLine();
-                addressBook.displayOne(number);
+                try {
+                    System.out.println("Enter contact number between 1 and " + addressBook.getAddressBook().size());
+                    int number = input.nextInt();
+                    input.nextLine();
+                    number--;
+                    addressBook.displayOne(number);
+                }
+                catch(java.util.InputMismatchException number) {
+                    System.out.println("Invalid Input! Please enter a number.");
+                }
             }
             if(a.equals("3")){
                 addressBook.displayAll();

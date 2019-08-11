@@ -1,3 +1,7 @@
+/**
+ * Currently just adds 6 contacts to AddressBook addressBook.
+ * Will eventually read from and save to a file
+ */
 public class FileAccessService implements DataAccessService {
     @Override
     public void readAllContacts(AddressBook addressBook) {
