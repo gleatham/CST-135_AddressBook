@@ -17,6 +17,8 @@ public class ConsoleApp {
             System.out.println("1. Add a contact");
             System.out.println("2. Display a contact");
             System.out.println("3. Display all contacts");
+            System.out.println("4. Delete contact");
+            System.out.println("5. Search");
 
             a = input.nextLine();
 
@@ -34,6 +36,18 @@ public class ConsoleApp {
             }
             if(a.equals("3")){
                 addressBook.displayAll();
+            }
+            if(a.equals("4")){
+                System.out.println("Enter contact number to remove.");
+                int index = input.nextInt();
+                input.nextLine();
+                addressBook.removeOne(index);
+            }
+            if(a.equals("5")){
+                String search;
+                System.out.print("Search: ");
+                search = input.nextLine();
+                addressBook.search(search);
             }
         }
 
