@@ -6,7 +6,7 @@
 public class BusinessContact extends PersonContact {
     private String businessHours;
     private String url;
-    Boolean isBusiness = false;
+    private Boolean isBusiness;
 
 
     BusinessContact(int number, String name, String phone, Location location){
@@ -16,6 +16,7 @@ public class BusinessContact extends PersonContact {
 
     BusinessContact(String dob, String description, int number, String name, String phone, Location location){
         super(dob, description, number, name, phone, location);
+        this.isBusiness = false;
     }
 
 
@@ -45,5 +46,9 @@ public class BusinessContact extends PersonContact {
 
     public Boolean getIsBusiness() {
         return isBusiness;
+    }
+
+    public void setIsBusiness(Boolean isBusiness){
+        this.isBusiness = isBusiness;
     }
 }

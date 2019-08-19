@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 import java.util.regex.*;
 
 /**
@@ -121,7 +123,7 @@ public class AddressBook {
     public void add(String dob, String description, int number, String name, String phone, Location location,
                     Boolean isBusiness){
         number = this.contactNumber;
-        BusinessContact businessContactNew = new BusinessContact(dob, description, number, name, phone, location);
+        BusinessContact businessContactNew = new BusinessContact(dob, description, number, name, phone, location, isBusiness);
         addressBook.add(businessContactNew);
         contactNumber++;
     }
@@ -159,6 +161,7 @@ public class AddressBook {
             System.out.println("City: " + addressBook.get(index).getLocation().getCity());
             System.out.println("State: " + addressBook.get(index).getLocation().getState());
             System.out.println("Location ID: " + addressBook.get(index).getLocation().getLocationId());
+            System.out.println("isBusiness: " + addressBook.get(index).getIsBusiness());
 
             if (addressBook.get(index).getIsBusiness()) {
                 System.out.println("Business Hours: " + addressBook.get(index).getBusinessHours());
@@ -224,5 +227,32 @@ public class AddressBook {
             }
         }
 
+    }
+
+    public void saveContacts() throws IOException {
+        //name, phone, isBusiness, field4, field5, locationID, street, city, state
+        //fields 4 and 5 vary depending on if it is a business contact or not
+        String fileName = "contacts.txt";
+        String text;
+        Boolean append;
+        FileAccessService fas = new FileAccessService();
+        fas.clearFile(fileName);
+
+        for(int i = 0; i < addressBook.size(); i++){
+            int counter = 0;
+            append = true;
+
+            if(!addressBook.get(i).getIsBusiness()) {
+                text = addressBook.get(i).getName() + "," + addressBook.get(i).getPhone() + "," +
+                        addressBook.get(i).getIsBusiness() + "," + addressBook.get(i).getDob() +
+                        "," + addressBook.get(i).getDescription();
+            } else {
+                text = addressBook.get(i).getName() + "," + addressBook.get(i).getPhone() + "," +
+                        addressBook.get(i).getIsBusiness() + "," + addressBook.get(i).getBusinessHours() +
+                        "," + addressBook.get(i).getUrl();
+            }
+            fas.saveAllContacts(fileName, text, append, counter);
+            counter++;
+        }
     }
 }

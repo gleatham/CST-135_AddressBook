@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -5,12 +6,12 @@ import java.util.Scanner;
  * Initializes AddressBook object
  */
 public class ConsoleApp {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
 
         AddressBook addressBook = new AddressBook();
 
         FileAccessService readFile = new FileAccessService();
-        readFile.readAllContacts(addressBook);
+        readFile.readAllContacts(addressBook, "contacts.txt");
 
         Scanner input = new Scanner(System.in);
         String a = "i";
@@ -28,6 +29,7 @@ public class ConsoleApp {
             a = input.nextLine();
 
             if(a.equals("q")){
+                addressBook.saveContacts();
                 break;
             }
             if(a.equals("1")){
